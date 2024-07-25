@@ -1,0 +1,73 @@
+/* TopBar.css */
+.topbar {
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    transition: top 0.3s; /* Animation for showing/hiding the topbar */
+  }
+  
+  .nav-links {
+    display: flex;
+  }
+  
+  .topbar-link {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .topbar-link:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Hidden state for the topbar */
+  .topbar.hidden {
+    top: -50px; /* Adjust this value based on the height of your topbar */
+  }
+  
+  .user-section {
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .user-avatar {
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-name {
+    display: flex;
+    align-items: center;
+    color: #f2f2f2;
+  }
+  
+  .logout-button {
+    margin-left: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #0056b3;
+  }
+  
