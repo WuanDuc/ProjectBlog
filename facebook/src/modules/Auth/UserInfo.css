@@ -1,0 +1,147 @@
+.user-info-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+  }
+  
+  .ask-section {
+    text-align: center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .ask-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .ask-section.hide {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  .ask-section button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #626262;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .ask-section button:hover {
+    background-color: #333;
+  }
+  
+  .form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-section.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .info-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 1s ease;
+  }
+  
+  .info-form.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .info-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #626262;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #333;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-height: 70%;
+  }
+  
+  .modal-content p {
+    margin-bottom: 20px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .confirm-button,
+  .cancel-button {
+    padding: 10px 20px;
+    margin-top: 70px;
+    border: none;
+    background-color: #626262;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    max-width: 30%;
+  }
+  
+  .confirm-button:hover,
+  .cancel-button:hover {
+    background-color: #333;
+  }
+  

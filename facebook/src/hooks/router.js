@@ -4,6 +4,9 @@ import ProfilePage from '../modules/Profile/Profile';
 import TopBar from '../components/TopBar';
 import Chat from '../modules/Chat/Chat';
 import UserList from '../modules/AddFriend/AddFriend';
+import Login from '../modules/Auth/Login';
+import Signup from '../modules/Auth/Signup';
+import UserInfo from '../modules/Auth/UserInfo';
 
 const router = createBrowserRouter([
   {
@@ -11,6 +14,27 @@ const router = createBrowserRouter([
     element: <div>
         <TopBar></TopBar>
         <MainPage/>
+        </div>
+
+  },
+  {
+    path: "/login",
+    element: <div>
+        <Login/>
+        </div>
+
+  },
+  {
+    path: "/signup",
+    element: <div>
+        <Signup/>
+        </div>
+
+  },
+  {
+    path: "/info",
+    element: <div>
+        <UserInfo/>
         </div>
 
   },

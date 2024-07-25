@@ -6,7 +6,9 @@ const router = require("./router/router");
 // const upload = multer({ dest: 'uploads/' });
 app.use(express.json());
 app.use(cors());
+
 app.use("/api", router);
+
 // app.post('/upload', upload.single('image'), (req, res) => {
 //     // Do something with the uploaded image
 //     const file = req.file;
@@ -15,5 +17,5 @@ app.use("/api", router);
 //     res.json({ message: 'Image uploaded successfully',photo:file.path });
 //   });
 app.listen(5000, () => {
-  console.log("server is running");
+  console.log(`server is running, port: {} ` );
 });
