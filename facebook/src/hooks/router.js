@@ -10,7 +10,7 @@ import UserInfo from '../modules/Auth/UserInfo';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/main",
     element: <div>
         <TopBar></TopBar>
         <MainPage/>

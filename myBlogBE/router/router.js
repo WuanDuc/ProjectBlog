@@ -84,6 +84,6 @@ router.get(
 
 
 router.post("/signup", FirebaseAuthController.registerUser);
-router.get("/login", FirebaseAuthController.loginUser);
+router.post("/login", FirebaseAuthController.loginUser);
 
 module.exports = router;

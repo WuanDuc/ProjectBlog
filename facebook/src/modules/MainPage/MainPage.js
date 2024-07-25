@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Post from '../../components/Post';
-
+import { AuthContext } from '../../hooks/AuthHook';
+import { useNavigate} from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
 const postsData = [
   {
     username: 'Alice',
@@ -24,6 +26,18 @@ const postsData = [
 ];
 
 function MainPage() {
+  const { isAuthenticated } = useContext(AuthContext);
+  const history = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      history('/login');
+    }
+  }, [isAuthenticated, history]);
+
+  if (!isAuthenticated) {
+    return null;
+  }
   return (
     <div>
       <div style={styles.postsContainer}>

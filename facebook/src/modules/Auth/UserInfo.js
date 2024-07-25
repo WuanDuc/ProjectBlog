@@ -37,7 +37,7 @@ const UserInfo = () => {
     setShowModal(false);
     // Handle form submission logic here
     console.log('Form submitted:', formData);
-    fetch('http://localhost:5000/api/signup', {
+    fetch(`${host}api/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

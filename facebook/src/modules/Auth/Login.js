@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Auth.css';
-
+import { AuthContext } from '../../hooks/AuthHook';
+import { host } from '../../configs/constants';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const { login } = React.useContext(AuthContext);
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -19,7 +20,7 @@ const Login = () => {
     formData.append('password', password);
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/login`, {
+      const response = await fetch(`${host}api/login`, {
         method: 'POST',
         body: formData,
       });
@@ -30,7 +31,7 @@ const Login = () => {
 
       const data = await response.json();
       console.log(data);
-      // Handle successful login here, e.g., saving tokens, redirecting, etc.
+      login(data.token);
     } catch (error) {
       console.error(error);
       setError('Login failed. Please check your credentials and try again.');
