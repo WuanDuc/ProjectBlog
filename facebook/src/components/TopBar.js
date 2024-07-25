@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './TopBar.css'; 
+import { AuthContext } from '../hooks/AuthHook';
 
 const TopBar = () => {
   const [hidden, setHidden] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  const { logout } = React.useContext(AuthContext);
   const history = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
@@ -27,13 +29,13 @@ const TopBar = () => {
 
   const handleLogout = () => {
     // Add logout logic here
-    console.log('Logout clicked');
+    logout();
   };
 
   return (
     <div className={`topbar ${hidden ? 'hidden' : ''}`}>
       <div className="nav-links">
-        <Link to="/" className='topbar-link'>Main Page</Link>
+        <Link to="/main" className='topbar-link'>Main Page</Link>
         <Link to="/friend" className='topbar-link'>Friend</Link>
         <Link to="/chat" className='topbar-link'>Chat</Link>
       </div>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Auth.css';
 import { AuthContext } from '../../hooks/AuthHook';
 import { host } from '../../configs/constants';
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -10,19 +11,26 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { login } = React.useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
 
-    const formData = new FormData();
-    formData.append('email', email);
-    formData.append('password', password);
-
+    const formData = {
+      email: email,
+      password: password,
+    }
+    
+    console.log(formData);
     try {
       const response = await fetch(`${host}api/login`, {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
@@ -32,6 +40,7 @@ const Login = () => {
       const data = await response.json();
       console.log(data);
       login(data.token);
+      navigate('/main');
     } catch (error) {
       console.error(error);
       setError('Login failed. Please check your credentials and try again.');
