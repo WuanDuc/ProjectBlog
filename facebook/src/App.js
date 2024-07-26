@@ -5,17 +5,20 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
+  useNavigate,
   Link,
 } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import MainPage from './modules/MainPage/MainPage';
 import ProfilePage from './modules/Profile/Profile';
 import ChatWindow from './components/ChatWindow';
 import { useChat } from './hooks/ChatHook';
 import TopBar from './components/TopBar';
 import router from './hooks/router';
+import { AuthContext } from './hooks/AuthHook';
 function App() {
   const { isChatOpen, handleCloseChat } = useChat();
+  const { isAuthenticated } = useContext(AuthContext);
 
   // Update local storage whenever isChatOpen changes
   useEffect(() => {
@@ -26,7 +29,7 @@ function App() {
     <div>
       <RouterProvider router={router}>
       </RouterProvider>
-      {isChatOpen && <ChatWindow onClose={handleCloseChat} />}
+      {isChatOpen && isAuthenticated && <ChatWindow onClose={handleCloseChat} />}
     </div>
     
   );

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './UserInfo.css';
 import { host } from '../../configs/constants';
+import { useNavigate } from 'react-router-dom';
 const UserInfo = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { name, email, password } = location.state || {};
   
   const [showForm, setShowForm] = useState(false);
@@ -46,6 +48,7 @@ const UserInfo = () => {
     })
       .then(response => response.json())
       .then(data => console.log(data))
+      .then(() => navigate('/login'))
       .catch(error => console.error(error));
   };
 

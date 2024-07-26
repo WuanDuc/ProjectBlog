@@ -84,23 +84,30 @@ class FirebaseAuthController {
             });
         }
         signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => { 
-              const idToken = userCredential._tokenResponse.idToken
-                if (idToken) {
+            .then((userCredential) => {
+                const user = userCredential.user;
+
+                if (!user.emailVerified) {
+                    return res.status(403).json({
+                        error: "Email not verified. Please check your email for verification instructions.",
+                    });
+                }
+
+                user.getIdToken().then((idToken) => {
                     res.cookie('access_token', idToken, {
                         httpOnly: true
                     });
                     res.status(200).json({ message: "User logged in successfully", userCredential });
-                } else {
+                }).catch((error) => {
                     res.status(500).json({ error: "Internal Server Error" });
-                }
+                });
             })
             .catch((error) => {
                 console.error(error);
                 const errorMessage = error.message || "An error occurred while logging in";
                 res.status(500).json({ error: errorMessage });
             });
-      }
+    }
 }
 
 module.exports = new FirebaseAuthController();
