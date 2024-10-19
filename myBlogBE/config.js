@@ -23,7 +23,6 @@ const firebaseConfig = {
 const firebase = initializeApp(firebaseConfig);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: "gs://cyberstoremanagement-4b1bf.appspot.com",
 });
 const {
   getFirestore,

@@ -7,8 +7,17 @@ import UserList from '../modules/AddFriend/AddFriend';
 import Login from '../modules/Auth/Login';
 import Signup from '../modules/Auth/Signup';
 import UserInfo from '../modules/Auth/UserInfo';
+import LandingPage from '../modules/MainPage/Landing';
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <div>
+      <TopBar/>
+        <LandingPage/>
+        </div>
+
+  },
   {
     path: "/main",
     element: <div>
@@ -20,6 +29,7 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <div>
+      <TopBar></TopBar>
         <Login/>
         </div>
 
@@ -27,6 +37,7 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <div>
+      <TopBar/>
         <Signup/>
         </div>
 

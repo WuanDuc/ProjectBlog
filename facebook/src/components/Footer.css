@@ -1,0 +1,16 @@
+/* src/styles/Footer.css */
+.footer-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #f8f9fa;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
+  
+  .footer-text {
+    font-size: 1rem;
+    color: #666;
+  }
+  

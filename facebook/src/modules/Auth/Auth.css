@@ -1,96 +1,124 @@
+/* src/styles/AuthPage.css */
 .auth-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+  animation: slideDown 1s ease-out;
+}
+
+.logo-image {
+  width: 50px;
+  height: 50px;
+}
+
+.app-name {
+  font-size: 24px;
+  font-weight: bold;
+  animation: slideDown 1s ease-out;
+}
+
+.auth-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  opacity: 0;
+  animation: fadeIn 1s 0.5s forwards;
+}
+
+.auth-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: fadeIn 1s 0.7s forwards;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: calc(100% - 30px); /* Adjust width to accommodate the eye icon */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.password-group {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 38px; /* Adjust based on input height */
+  cursor: pointer;
+}
+
+.signup-link,
+.login-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup-link a,
+.login-link a {
+  color: #626262;
+  text-decoration: none;
+}
+
+.signup-link a:hover,
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #626262;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0;
+  animation: fadeIn 1s 0.9s forwards;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
-  
-  .logo-container {
-    text-align: center;
-    margin-bottom: 20px;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
   }
-  
-  .logo-image {
-    width: 50px;
-    height: 50px;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .app-name {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .auth-form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
-  }
-  
-  .auth-form h2 {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input {
-    width: calc(100% - 30px); /* Adjust width to accommodate the eye icon */
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .password-group {
-    position: relative;
-  }
-  
-  .password-toggle {
-    position: absolute;
-    right: 10px;
-    top: 38px; /* Adjust based on input height */
-    cursor: pointer;
-  }
-  
-  .signup-link,
-  .login-link {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .signup-link a,
-  .login-link a {
-    color: #626262;
-    text-decoration: none;
-  }
-  
-  .signup-link a:hover,
-  .login-link a:hover {
-    text-decoration: underline;
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #626262;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:hover {
-    background-color: #333;
-  }
-  
+}
