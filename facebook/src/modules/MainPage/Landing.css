@@ -1,0 +1,87 @@
+/* src/styles/LandingPage.css */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  opacity: 0;
+  animation: fadeIn 1s forwards; /* Adding fade-in animation */
+}
+
+.main-section {
+  margin-top: 100px;
+  animation: slideIn 1s ease-out; /* Adding slide-in animation */
+}
+
+.title {
+  font-size: 4rem;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 2rem;
+  color: #666;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.styled-link {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  opacity: 0;
+  animation: fadeIn 2s forwards; /* Adding fade-in animation */
+  animation-delay: 1s; /* Delaying animation start */
+}
+
+.styled-link:hover {
+  background-color: #0056b3;
+}
+
+.features-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0;
+  opacity: 0;
+  animation: fadeIn 2s forwards; /* Adding fade-in animation */
+  animation-delay: 1.5s; /* Delaying animation start */
+}
+
+.feature {
+  width: 30%;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

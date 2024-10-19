@@ -24,7 +24,13 @@ const postsData = [
     media: null,
   },
 ];
-
+/**
+ * MainPage component is responsible for rendering the main page of the application.
+ * It checks if the user is authenticated and redirects them to the login page if not.
+ * If the user is authenticated, it renders a list of posts fetched from the 'postsData' array.
+ *
+ * @return {JSX.Element|null} The rendered main page component or null if the user is not authenticated.
+ */
 function MainPage() {
   const { isAuthenticated } = useContext(AuthContext);
   const history = useNavigate();

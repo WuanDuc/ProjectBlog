@@ -20,11 +20,20 @@ const UserInfo = () => {
     phoneNumber: '',
     birthDate: '',
   });
+  const [avatarFile, setAvatarFile] = useState(null);
+  const [backgroundImageFile, setBackgroundImageFile] = useState(null);
 
   const handleYes = () => {
     setShowForm(true);
   };
-
+  const handleFileChange = (e) => {
+      const { name, files } = e.target;
+      if (name === "avatar") {
+        setAvatarFile(files[0]);
+      } else if (name === "backgroundImage") {
+        setBackgroundImageFile(files[0]);
+      }
+    };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -38,7 +47,20 @@ const UserInfo = () => {
   const handleConfirm = async => {
     setShowModal(false);
     // Handle form submission logic here
-    console.log('Form submitted:', formData);
+    const formDataWithFiles = new FormData();
+    formDataWithFiles.append('name', formData.name);
+    formDataWithFiles.append('email', formData.email);
+    formDataWithFiles.append('password', formData.password);
+    formDataWithFiles.append('birthPlace', formData.birthPlace);
+    formDataWithFiles.append('phoneNumber', formData.phoneNumber);
+    formDataWithFiles.append('birthDate', formData.birthDate);
+    if (avatarFile) {
+      formDataWithFiles.append('avatar', avatarFile);
+    }
+    if (backgroundImageFile) {
+      formDataWithFiles.append('backgroundImage', backgroundImageFile);
+    }
+    console.log('Form submitted:', formDataWithFiles);
     fetch(`${host}api/signup`, {
       method: 'POST',
       headers: {
